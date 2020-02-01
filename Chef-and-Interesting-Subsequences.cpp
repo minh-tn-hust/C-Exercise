@@ -129,13 +129,24 @@ void phanLoai(int so,int viTri)
 	}
 void connect()
 	{
-	
+	int count,dem=0,count2=0;
+	for (count = 0;count<100;count++)
+		{
+		if (cacSo[dem][count2] == 0 ) {dem++;count2 =0;Array[count] = cacSo[dem][count2];  }
+		else {Array[count] = cacSo[dem][count2]; count2++;}
+		}
 	}
 int main()
 	{
-	int count = 0;
-	for (count=0;count<100;count++) phanLoai(Array[count],theNumber(Array[count],1));
-	printf("minh");
+	int count = 0,count2=1,count3;
+	for (count2=1;count2<=5;count2++)
+	{
+	for (count=0;count<100;count++) phanLoai(Array[count],theNumber(Array[count],count2));
+	connect();
+	for (count3=0;count3<10;count3++) vitri[count3] = 0;
+	}
+	printf("Minh");
+	
     }
 
     
