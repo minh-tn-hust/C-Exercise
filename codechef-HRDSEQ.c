@@ -23,11 +23,16 @@ int main()
 		}
 	int T,N;
 	int result[128];
+	scanf("%d",&T);
 	for (count=0;count<T;count++)
 		{
 		scanf("%d",&N);
-		result[count] = voHan[N];
+		int ketqua,l=0;
+		ketqua = voHan[N-1];
+		for (count2 =0;count2<N;count2++)
+		if (voHan[count2] == ketqua) l++;
+		result[count] = l;
 		}
-	for (count =0;count<T;count++) printf("%d",result[count]);
+	for (count =0;count<T;count++) printf("%d\n",result[count]);
 	}
 
