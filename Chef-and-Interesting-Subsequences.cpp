@@ -127,15 +127,16 @@ void phanLoai(int so,int viTri)
 	cacSo[viTri][vitri[viTri]] = so;
 	vitri[viTri]++;
 	}
-void connect()
-	{
-	int count,dem=0,count2=0;
-	for (count = 0;count<100;count++)
-		{
-		if (cacSo[dem][count2] == 0 ) {dem++;count2 =0;Array[count] = cacSo[dem][count2];  }
-		else {Array[count] = cacSo[dem][count2]; count2++;}
-		}
-	}
+// Connect con loi 
+//void connect()
+//	{
+//	int count,dem=0,count2=0;
+//	for (count = 0;count<100;count++)
+//		{
+//		if (cacSo[dem][count2] == 0 ) {dem++;count2 =0;Array[count] = cacSo[dem][count2];  }
+//		else {Array[count] = cacSo[dem][count2]; count2++;}
+//		}
+//	}
 int main()
 	{
 	int count = 0,count2=1,count3;
