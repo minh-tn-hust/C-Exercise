@@ -34,7 +34,7 @@ int soChuSo(long long checked) // Tra ve so chu so =============================
 		}
 	return dem;
 	}
-void connect(int AorB)
+void connect(int AorB) // Ket noi cac phan tu mang= =================================================================================
 	{
 	int count=0,dem=0,vitri=0;
 	while (count != N)
@@ -52,7 +52,7 @@ void connect(int AorB)
 		}
 	for (count = 0;count<10;count++) locate[count] = 0;
 	}
-void divAorB(int AorB) // 
+void divAorB(int AorB) // Chia cac phan tu mang =====================================================================================
 	{
 	int count1,count2,chuSo,vitri = soChuSo(maxArray(AorB));  // count : dem phan tu mang ;  vitri : dem vi tri cua chu so
 	for (count1 = 1;count1 <=vitri;count1++)
@@ -68,29 +68,26 @@ void divAorB(int AorB) //
 	}
 int main()
 	{
-		N = 10;
-		int count;
-		for (count = 0; count < N ;count ++) scanf("%lli",&A[0][count]);
-		for (count = 0; count < N ;count ++) scanf("%lli",&A[1][count]);
+	int T;
+	long long s=0,result[50];
+	scanf("%d",&T);
+	int count;
+	for (count = 0;count < T; count++)
+		{
+		scanf("%d",&N);
+		int count2;
+		for (count2 = 0; count2 < N ;count2 ++) scanf("%lli",&A[0][count2]);
+		for (count2 = 0; count2 < N ;count2 ++) scanf("%lli",&A[1][count2]);
 		divAorB(0);
-		printf("Hello World");
-//	long long s=0;
-//	int T,N;
-//	scanf("%d",&T);
-//	int count1,count2;
-//	for (count1=0;count1<T;count1++)
-//		{
-//		scanf("%d",&N);
-//		for (count2 = 0;count2<N;count2++) scanf("%d",&A[count2]);
-//		for (count2 = 0;count2<N;count2++) scanf("%d",&B[count2]);
-//		sort(N);
-//		for (count2=0;count2<N;count2++)
-//			{
-//			if (A[count2] < B[count2]) s+= A[count2];
-//			else (s+= B[count2]);
-//			}
-//		result[count1] = s;
-//		s=0;
-//		}
-//	for (count1=0;count1<T;count1++) printf("%lli\n",result[count1]);
+		divAorB(1);
+		for (count2=0;count2<N;count2++)
+			{
+			if (A[0][count2] < A[1][count2]) s+= A[0][count2];
+			else (s+= A[1][count2]);
+			}
+		result[count] = s;
+		s=0;
+		}
+	for (count=0;count<T;count++) printf("%lli\n",result[count]);
+
 	}
