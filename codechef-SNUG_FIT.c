@@ -36,15 +36,18 @@ int soChuSo(long long checked) // Tra ve so chu so =============================
 	}
 void connect(int AorB)
 	{
-	int count,dem=0,vitri=0;
-	for (count = 0;count < N;count++)
+	int count=0,dem=0,vitri=0;
+	while (count != N)
 		{
-		if (locate[vitri] == 0) vitri++;
-		else
-			{
-			A[AorB][count] = phanChia[vitri][dem];
-			dem++;
-			if (dem == locate[vitri]) {vitri++;dem=0;}
+			if (locate[vitri] == 0) vitri++;
+			else
+			{	if (dem == locate[vitri]) {vitri++;dem=0;}
+				else
+				{
+				A[AorB][count] = phanChia[vitri][dem];
+				dem++;
+				count++;
+				}
 			}
 		}
 	for (count = 0;count<10;count++) locate[count] = 0;
