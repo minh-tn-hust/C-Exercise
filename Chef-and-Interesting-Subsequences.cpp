@@ -94,16 +94,7 @@ int Array[100] = {23614,13870,15140,14258,5796,28526,
 11592,
 20961,
 7973};
-// Chu so lon nhat ==================================================================================
-int max()
-    {
-    int count1,max = Array[0];
-    for (count1=0;count1<100;count1++)
-        {
-        if (Array[count1]>max) max = Array[count1];
-        }
-    return max;
-    }
+// Radix sort demo voi so co 5 chu so, 100 phan tu
 // So mu
 int mu(int coSo,int soMu)
 	{
@@ -127,16 +118,25 @@ void phanLoai(int so,int viTri)
 	cacSo[viTri][vitri[viTri]] = so;
 	vitri[viTri]++;
 	}
-// Connect con loi 
-//void connect()
-//	{
-//	int count,dem=0,count2=0;
-//	for (count = 0;count<100;count++)
-//		{
-//		if (cacSo[dem][count2] == 0 ) {dem++;count2 =0;Array[count] = cacSo[dem][count2];  }
-//		else {Array[count] = cacSo[dem][count2]; count2++;}
-//		}
-//	}
+//Connect con loi  
+// cacSo[so Ngan][Phan tu]: mang phan chia
+// vitri : luwu laij soos luowngj owr mooix ngawng
+void connect()
+	{
+	int count=0,dem=0,count2=0,demVitri = 0;
+	while (count != 100)
+		{
+		if (vitri[dem] == 0 ) dem++;
+		else
+			{
+			Array[count] = cacSo[dem][demVitri];
+			count++;
+			demVitri++;
+			if (demVitri == vitri[dem]) {dem++; demVitri = 0;}
+			}
+		}
+	for (count = 0;count<10 ; count++) vitri[count] = 0;
+	}
 int main()
 	{
 	int count = 0,count2=1,count3;
