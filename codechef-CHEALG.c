@@ -18,10 +18,10 @@ int main()
 					else 
 						{
 						char chuyen[10],kitu[1];
-						itoa(dem,chuyen,10);
-						strcat(maHoa,chuyen);
-						kitu[0] = S[count2];
-					//	strcat(maHoa,kitu);
+						itoa(dem,chuyen,10); // chuyen so "dem" sang xau "chuyen"
+						strcat(maHoa,chuyen); // cong xau "chuyen" vao xau maHoa
+						kitu[0] = S[count2];// lay ki tu them vao xau kitu
+						strcat(maHoa,kitu); // cong xau "kitu" vao xau "maHoa"
 						dem=1;
 						}
 			
