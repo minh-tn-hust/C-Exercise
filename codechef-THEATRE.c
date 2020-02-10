@@ -68,16 +68,16 @@ void dauVao()
 	{
 	scanf("%d",&T);
 	int countT,countN;
+	int hour,ifilm;
+			char film;
 	for (countT=0;countT<T;countT++)
 		{
 		scanf("%d",&N);
 		
 		for (countN=0;countN<N;countN++) /*/ Make a matrix */
 			{
-			fflush(stdin);
-			int hour,ifilm;
-			char film;
-			scanf("%c",&film);
+		    fflush(stdin);
+			scanf("%s",&film);
 			scanf("%d",&hour);
 			ifilm = film;
 			thongTin[ifilm-65][hour/3-1]++;
