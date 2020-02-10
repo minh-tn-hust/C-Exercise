@@ -88,7 +88,8 @@ void dauVao()
 int main()
 	{
 	dauVao();	
-	int count,dem=0;
+	int count;
+	long long dem = 0;
 	for (count = 0;count<T;count++) {printf("%d\n",result[count]);dem+=result[count];}
-	printf("%d",dem);
+	printf("%lli",dem);
 	}
