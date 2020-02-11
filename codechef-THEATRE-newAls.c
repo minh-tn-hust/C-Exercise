@@ -1,13 +1,13 @@
 #include <stdio.h>
-int thongTin[4][4] = {0};
-int result[150];
+int thongTin[4][4] = {0}; // Thông tin đầu vào được biến thành ma trận
+int result[150]; // Mảng dùng để lưu kết quả
 int T,N;
 #define MAX 20 
-int n;
-int Bool[20] = { 0 };//��nh d?u chua c� ph?n t? n�o s? d?ng h?t
-int A[20],B[20];//LuBu ho�n v? v�o m?ng A
-int money[24];
+int Bool[20] = { 0 }; // Mảng boolean dùng trong việc tạo hoán vị
+int A[20],B[20]; // mảng A dùng để chứa hoán vị, mảng B dùng để chứa thongTin[hoán vị][cột] 
+int money[24]; // Mảng dùng để chứa kết quả của 24 hoán vị
 int dem=0;
+// Reset lại mảng và hệ thống đếm ================================================================================
 void reset()
 	{
 	int hello = 0,hello2;
@@ -18,7 +18,7 @@ void reset()
 	for (hello  = 0;hello <24;hello++) money[hello] =0;
 	dem=0;
 	}
-// Dau vao o day
+// Ép dữ liệu vào mảng B ( Thủ công vcl) ===========================================================================
 void put()
 	{
 	B[0]=thongTin[A[1]][0];
@@ -26,6 +26,7 @@ void put()
 	B[2]=thongTin[A[3]][2];
 	B[3]=thongTin[A[4]][3];
 	}
+// Sắp xếp các phẩn từ trong mảng B ==============================================================================
 void sort()
 	{
 	int count1,count2,hold;
@@ -40,6 +41,7 @@ void sort()
 			}
 		}
 	}
+// Dùng để tìm max trong 24 hoán vị, đó là kết quả cuối cùng của 1 test case
 int max()
 	{
 	int count=0,max1=money[0];
@@ -49,26 +51,27 @@ int max()
 		}
 	return max1;
 	}
+// Check xem có bộ phim nào không được chiếu hay không
 int checked()
 	{
 	int count1,count2,dem1=0,check=0;
 	for (count1 = 0;count1 < 4;count1 ++) if (B[count1] == 0)dem1++;
 	return dem1;
 	}	
+// Hàm tạo hoán vị, mỗi khi tạo được 1 hoán vị sẽ xử lý trực tiếp cho ra số tiền mà Chef kiếm được ===================================
 void Try(int k) {
 	int i;
     for (i = 1; i <= 4; i++) {
-        //Ki?m tra n?u ph?n t? chua du?c ch?n th� s? d�nh d?u
         if (!Bool[i]) 
 		{
-            A[k] = i-1; // Luu m?t ph?n t? v�o ho�n v?
-            Bool[i] = 1;//��nh d?u d� d�ng
-            if (k == 4)//Ki?m tra n?u d� ch?a m?t ho�n v? th� xu?t
+            A[k] = i-1; 
+            Bool[i] = 1;
+            if (k == 4)//
                 	{
-                	put();
-                	sort();
-                	money[dem] = B[3]*100+B[2]*75+B[1]*50+B[0]*25-checked()*100;
-                	dem++;
+                	put();// Ép thongtin vào mảng B
+                	sort(); // Sort mảng B
+                	money[dem] = B[3]*100+B[2]*75+B[1]*50+B[0]*25-checked()*100; // Tính tiến từ mảng B và checked()
+                	dem++; // Bộ đếm mảng money
 					}
             else
                 Try(k + 1);
@@ -76,18 +79,18 @@ void Try(int k) {
         }
     }
 }
-	
+// Nhập input ở đây, chuyển input -> ma trận =======================================================================================
 void dauVao()
 	{
 	scanf("%d",&T);
 	int countT,countN;
 	int hour,ifilm;
-			char film;
+	char film;
 	for (countT=0;countT<T;countT++)
 		{
 		
 		scanf("%d",&N);
-//  	Make a matrix to process
+//  Ép thông tin vào ma trận
 		for (countN=0;countN<N;countN++) 
 			{
 		    fflush(stdin);
@@ -101,6 +104,7 @@ void dauVao()
 		reset();
 		}
 	}
+// Cuối cùng nè ==========================================================================================
 int main()
 	{
 	dauVao();
