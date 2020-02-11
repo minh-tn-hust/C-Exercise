@@ -52,16 +52,8 @@ int max()
 int checked()
 	{
 	int count1,count2,dem1=0,check=0;
-	for (count1 =0;count1<4;count1++)
-	{
-	for (count2 = 0;count2<4; count2++)
-		{
-		if (thongTin[count1][count2] == 0) dem1++;
-		}
-		if (dem1 == 4) check++;
-		dem1 = 0;
-	}
-	return check;
+	for (count1 = 0;count1 < 4;count1 ++) if (B[count1] == 0)dem1++;
+	return dem1;
 	}	
 void Try(int k) {
 	int i;
@@ -75,7 +67,7 @@ void Try(int k) {
                 	{
                 	put();
                 	sort();
-                	money[dem] = B[3]*100+B[2]*75+B[1]*50+B[0]*25;
+                	money[dem] = B[3]*100+B[2]*75+B[1]*50+B[0]*25-checked()*100;
                 	dem++;
 					}
             else
@@ -105,7 +97,7 @@ void dauVao()
 			thongTin[ifilm-65][hour/3-1]++;
 			}           
 		Try(1);
-		result[countT] = max() - checked()*100;
+		result[countT] = max() ;
 		reset();
 		}
 	}
