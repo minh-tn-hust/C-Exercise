@@ -31,7 +31,7 @@ int checkC() // Hàm tìm kiếm vị trí C, nếu như số lượng coin lấ
 		return tongDu2-(tongThem1-tongThem2);
 		}
 	}
-void input() // Nhập dữ liệu đầu vào
+void input() // Nhập dữ liệu đầu vào===============================================================================
 	{
 	int check;
 	int countT;
@@ -45,9 +45,9 @@ void input() // Nhập dữ liệu đầu vào
 			{
 			scanf("%lli",&coins[countN]);
 			}
-// Xu ly bai toan bat dau tu day =====================================				
+// Xu ly bai toan bat dau tu day =================================================================================		
 		laySoDu(); // Gọi hàm để đẩy số dư, số thêm vào mảng
-		result[countT] = checkC();  // Kết quả
+		printf("%d",checkC());	  // Kết quả
 		}
 
 	}
@@ -55,5 +55,5 @@ int main()
 	{
 	input();
 	int count;
-	for (count = 0;count<T;count++) printf("%lli\n",result[count]);	
+	
 	}

@@ -9,7 +9,6 @@ int r,xr,yr;
 int playzone[20][40] = {0};// 1-19 ; 1 - 39;
 void food()
 	{
-	
     srand((int)time(0));
     xr = rand()%39+1;
     yr = rand()%19+1;
@@ -39,7 +38,7 @@ void printPlayZone()
 				} 
 			}	
 		}
-	printf("\n%lli",point);
+	printf("\nPoint : %lli",point);
 	}
 void moveD()
 	{
@@ -96,9 +95,6 @@ int main()
 			fflush(stdin);
 			system("cls");
 			printPlayZone();
-			usleep(100);
-		
-// =============Ðây là ph?n ki?m tra keyboard d?u vào============================================
 			if (keyBoardHit == 97) moveA();
             else
             {
@@ -112,6 +108,10 @@ int main()
                     }
                     
                 }
+			usleep(500);
+		
+// =============Ðây là ph?n ki?m tra keyboard d?u vào============================================
+			
                 
             }
             if ((x == xr)&&(y==yr)) 
