@@ -46,5 +46,7 @@ int main()
 		factorial();
 		memset(inte,0,sizeof(inte));
 		inte[0]=1;
+		index = 0;
+		index1 = 1;
 		}
 	}
