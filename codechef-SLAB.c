@@ -16,7 +16,7 @@ int main()
             {
             salaryTax += LEVEL*tax[countN]; 
             }
-        if (countN == 0) printf("%ld",N);
+        if (countN == 0) printf("%ld\n",N);
         else
         {
 		salaryTax += (N%(LEVEL*countN))*tax[countN];
