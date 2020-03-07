@@ -1,7 +1,7 @@
 #include <stdio.h>
 long array[100000];
-int chiaMang(long array[],long left,long right);
-void quickSort(long array[],long left,long right);
+int chiaMang(long left,long right);
+void quickSort(long left,long right);
 int swap(long *a,long *b)
 	{
 	long hold;
@@ -9,7 +9,7 @@ int swap(long *a,long *b)
 	*a = *b;
 	*b = hold;
 	}
-int chiaMang(long array[],long left,long right) // a[left] ........... a[right]
+int chiaMang(long left,long right) // a[left] ........... a[right]
 // right và left là giới hạn của phần cần chia
 	{
 	long *pivot = &array[left + (right - left)/2]; // Lấy phần tử chốt ở giữa mảng, sử dụng con trỏ để tiện cho việc đổi chỗ
@@ -27,15 +27,15 @@ int chiaMang(long array[],long left,long right) // a[left] ........... a[right]
             }
         }
     swap(pivot,&array[hold]);
-    quickSort(array,left,hold-1); // gọi phần bên trái chạy từ left đến hold -1
-    quickSort(array,hold+1,right); // gọi phần bên phải chạy từ hold + 1 đến right
+    quickSort(left,hold-1); // gọi phần bên trái chạy từ left đến hold -1
+    quickSort(hold+1,right); // gọi phần bên phải chạy từ hold + 1 đến right
 	}
-void quickSort(long array[],long left,long right)
+void quickSort(long left,long right)
     {
     if (left > right) 1; // Nếu left == right thì dừng đệ quy
     else
         {
-        chiaMang(array,left,right);
+        chiaMang(left,right);
         }
     }
 long T;
@@ -44,7 +44,7 @@ long main()
 	scanf("%ld",&T);
 	long count;
 	for (count = 0; count < T;count ++) scanf("%ld",&array[count]);
-	quickSort(array,0,T-1);
+	quickSort(0,T-1);
 	
 	for (count = 0; count < T;count ++) printf("%d\n",array[count]);
 	}

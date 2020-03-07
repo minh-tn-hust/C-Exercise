@@ -23,7 +23,7 @@ int checkBigger() //this function check to see if there's any elements which is 
 int yes() // this funtion use to print the result if the answer is YES (begin at line 61)
 	{
 	int position1 =N-1,dem = 0; // N-1 is the number of denomination
-	for (position1;position1>=0;position1--)
+	for (position1;position1>=0;position1--)                            // this loop use for (checkQuanHeD() == N-1 when it's wrong
 	if(P%D[position1] != 0) {C[position1] = P/D[position1]+1;return 1;} // if P % Di != 0, the number of Di = P/Di + 1;
 	position1 = N-1; 
 	while (P>0)
