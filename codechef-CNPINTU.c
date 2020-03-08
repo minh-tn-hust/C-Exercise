@@ -6,15 +6,15 @@ int process[100] = {0};
 int processer()
 	{
 	int count,min;
-	process[F[0]] += P[0];
-	min = process[F[0]];
-	for (count = 1; count < N;  count++)
+
+	for (count = 0; count < N;  count++)
 		{
 		process[F[count]] += P[count]; 
 		}
-	for (count = 1; count <= M; count++)
+	min = process[F[0]];
+	for (count = 0; count < N; count++)
 		{
-		if ((process[F[count]] < min)&&(process[F[count]] != 0)) min = process[F[count]];
+		if (process[P[count]] < min) min = process[P[count]];
 		}
 	return min;
 	}
@@ -29,7 +29,7 @@ int main()
 		for (count = 0; count < N;count++) scanf("%d",&P[count]);
 		printf("%d\n",processer());
 		memset(P,0,sizeof(P));
-		memset(P,0,sizeof(F));
-		memset(P,0,sizeof(process));
+		memset(F,0,sizeof(F));
+		memset(process,0,sizeof(process));
 		}
 	}
