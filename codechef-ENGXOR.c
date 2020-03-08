@@ -4,21 +4,20 @@
 int T;
 long N,Q,P,odd=0,even=0; // even chan; odd le;
 long A[100000];
-
 void process()
 	{
-	char counter;
-	long count,temp;
-	char bitwise[40]; 
+	long count,temp,counter=0,hold;
 	for (count = 0; count < N; count++)
 		{
-		temp = P^A[count];
-		itoa(temp,bitwise,2);
-		temp = 0;
-		for (counter = 0; counter < strlen(bitwise);counter++)
-		if (bitwise[counter] == 49) temp++;	
-		if (temp%2 == 1) odd++;
+		temp = P^A[count];	
+		while (temp>=1)
+			{
+			if (temp%2 == 1) counter++;
+			temp/=2;
+			}
+		if (counter%2 == 1) odd++;
 		else even++;
+		counter = 0;
 		}
 	}
 int main()
@@ -35,7 +34,7 @@ int main()
 			{
 			scanf("%ld",&P);
 			process();
-			printf("%ld %ld",even,odd);
+			printf("%ld %ld\n",even,odd);
 			even = 0; odd = 0;
 			}
 		}
