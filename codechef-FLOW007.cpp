@@ -4,18 +4,29 @@
 int main()
 	{
 	int T;
-	char c[100];
+
 	scanf("%d",&T);
 	int count;
 	for (count = 0; count <T;count ++)
 		{
+		char c[100];
+		int check =0 ;
 		fflush(stdin);
 		gets(c);
 		int cLength;
 		for (cLength = strlen(c)-1;cLength>=0;cLength--)
 			{
-			if ((c[cLength] == '0')&&(c[cLength+1]== '0')) continue; //Loi phep so sanh "=="
-			else printf("%c",c[cLength]);
+			if ((c[cLength] == '0')&& (check == 0)) continue;
+			if (c[cLength] != '0') check = 1;
+			if ((c[cLength] == '0')&& (check == 1))
+			{
+			printf("0");
+			continue;
 			}
+			if (c[cLength] != 0) printf("%c",c[cLength]);
+			
+			}
+		printf("\n");
+		
 		}
 	}
