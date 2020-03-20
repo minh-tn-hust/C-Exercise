@@ -1,32 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 int main()
 	{
-	int T;
-
-	scanf("%d",&T);
-	int count;
+	int c=0;
+	long T,s=0,N,hold;
+	scanf("%ld",&T);
+	long count;
 	for (count = 0; count <T;count ++)
 		{
-		char c[100];
-		int check =0 ;
-		fflush(stdin);
-		gets(c);
-		int cLength;
-		for (cLength = strlen(c)-1;cLength>=0;cLength--)
-			{
-			if ((c[cLength] == '0')&& (check == 0)) continue;
-			if (c[cLength] != '0') check = 1;
-			if ((c[cLength] == '0')&& (check == 1))
-			{
-			printf("0");
-			continue;
-			}
-			if (c[cLength] != 0) printf("%c",c[cLength]);
-			
-			}
-		printf("\n");
-		
+		int c=0;
+		s=0;
+		scanf("%ld",&N);
+		hold = N;
+		while (hold > 0)
+		    {
+		    c++;
+		    hold/=10;
+		    }
+		c--;
+		while (N>0)
+		    {
+		    hold = N%10;
+		    s+= hold*((int)pow(10,(float)c));
+		    N/=10;
+		    c--;
+		    }
+		 printf("%ld\n",s);
 		}
 	}
