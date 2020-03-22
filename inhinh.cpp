@@ -29,5 +29,4 @@ int main()
 	for (count = 1; count <= 2*n-1; count ++)
 	if (count <= n) inhang(count);
 	else inhang(2*n-count);
-	
 	}
