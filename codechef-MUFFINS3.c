@@ -10,7 +10,7 @@ int main()
 		long N,check;
 		scanf("%ld",&N);
 		check = N/2;
-		if (N == 1) printf("2");
-		else printf("%ld",check+1);
+		if (N == 1) printf("2\n");
+		else printf("%ld\n",check+1);
 		}
 	}
