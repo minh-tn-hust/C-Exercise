@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+int array[3401];
 int check(int N)
 	{
 		int count,check1 = 0;
@@ -13,10 +14,10 @@ int check(int N)
 			}
 		return check1;
 	}
-int main()
+void assign(void)
 	{
 		int count,dem = 0;
-		int array[3401];
+		
 		for (count = 2; count < 31608;count++)
 			{
 				
@@ -26,22 +27,31 @@ int main()
 					dem++;
 				}
 			}
+	}
+int main()
+	{
+		
 		int T;
-		count = 0; dem = 0;
+		assign();
 		scanf("%d",&T);
 		while (T--)
-		    {
+		    {	int count=1,dem=0;
 		        long X,K;
 		        scanf("%ld%ld",&X,&K);
-		        while (dem<=3400||X!=1)
+		        while (X!=1||dem<=3400)
 		            {
 		                if (X%array[dem] == 0)
 		                    {
 		                        count++;
 		                        X/= array[dem];
-		                        if (count >= K) break;
+		                        if (count >= K) break;       
 		                    }
-		                else dem++;
+		                else 
+							{	
+								if (array[dem] > sqrt(X)) break;
+								dem++;
+							}
+		                
 		            }
 		        if (count >= K) printf("1");
 		        else printf("0");
